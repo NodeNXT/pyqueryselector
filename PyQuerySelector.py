@@ -28,5 +28,12 @@ class PyQuerySelector():
             if (e[0] == "#" + idElement):
                 del self.elements[index]
                 return 0
+            
+    def replaceElement(self, idElement: str, tkElement, idReplace: str):
+        for index, e in enumerate(self.elements):
+            if (e[0] == "#" + idElement):
+                self.elements[index][0] = "#" + idReplace
+                self.elements[index][1] = tkElement
+                return 0
 
         raise PyQuerySelectorError("'" + idElement + "' is not defined")
